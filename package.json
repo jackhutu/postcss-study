@@ -1,0 +1,50 @@
+{
+  "name": "postcss-study",
+  "version": "1.0.0",
+  "description": "gulp + postcss | webpack",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackhutu/postcss-study.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackhutu/postcss-study/issues"
+  },
+  "homepage": "https://github.com/jackhutu/postcss-study#readme",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.1.0",
+    "babel-core": "^6.2.1",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "css-loader": "^0.23.0",
+    "cssgrace": "^3.0.0",
+    "cssnext": "^1.8.4",
+    "del": "^2.1.0",
+    "extract-text-webpack-plugin": "^0.9.1",
+    "gulp": "^3.9.0",
+    "gulp-postcss": "^6.0.1",
+    "gulp-sequence": "^0.4.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "postcss": "^5.0.12",
+    "postcss-loader": "^0.8.0",
+    "postcss-mixins": "^2.1.1",
+    "postcss-nested": "^1.0.0",
+    "postcss-scss": "^0.1.3",
+    "postcss-simple-vars": "^1.1.0",
+    "precss": "^1.3.0",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.8",
+    "webpack-stream": "^2.1.1"
+  }
+}

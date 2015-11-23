@@ -1,0 +1,14 @@
+@define-mixin clearfix{
+    &:after{
+        display: table;
+        clear: both;
+        content: " ";
+    }
+}
+
+
+$baseColor: red;
+.column-container{
+    color: $baseColor;
+    @mixin clearfix;
+}
