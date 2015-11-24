@@ -53,7 +53,8 @@ gulp.task('precss', function () {
 gulp.task('clean',()=>{
 	return del([
 			path.join(__dirname, 'dist'),
-			path.join(__dirname, 'wpdist')
+			path.join(__dirname, 'webpack-dist'),
+			path.join(__dirname, 'cssnext-dist')
 		])
 })
 
@@ -68,8 +69,30 @@ import config from './webpack.config.babel'
 gulp.task('webpack',()=>{
 	return gulp.src(path.join(__dirname,'src/main.js'))
 						.pipe(webpack(config))
-						.pipe(gulp.dest(path.join(__dirname,'wpdist')))
+						.pipe(gulp.dest(path.join(__dirname,'webpack-dist')))
 })
 
-gulp.task('default',sequence('watch',['css','precss'],'webpack'))
-gulp.task('build',sequence('clean',['css','precss'],'webpack'))
+
+//cssnext框架的使用(基于postcss)
+import gulpCssnext from 'gulp-cssnext'
+
+gulp.task('cssnext',()=>{
+	return gulp.src([
+			path.join(__dirname, 'src/cssnext.css')
+		])
+		.pipe(gulpCssnext({
+			browsers: "last 2 versions",	//兼容浏览器版本.
+			compress:false,  //压缩
+			sourcemap:true
+		}))
+		.pipe(gulp.dest(path.join(__dirname,'cssnext-dist')))
+})
+
+
+
+gulp.task('default',sequence('watch',['css','precss'],['webpack','cssnext']))
+gulp.task('build',sequence('clean',['css','precss'],['webpack','cssnext']))
+
+
+
+
